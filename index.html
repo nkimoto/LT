@@ -75,6 +75,17 @@
         width: 48%;
         float: right;
       }
+      img {
+        max-width: 100%;
+      }
+      /* 引用の設定 */
+      blockquote {
+        border-left: 0.3em solid rgba(60,74,96,0.7);
+        padding: 0 15px;
+        font-style: italic;
+        color: rgba(60,74,96,0.7);
+        quotes: "\201C""\201D""\2018""\2019";
+      }
     </style>
 </head>
 <body>
@@ -83,6 +94,15 @@
   <script type="text/javascript">
     // sample.md
     var slideshow = remark.create({sourceUrl: "sample.md"});
+    remark.macros.scale = function (percentage) {
+                var url = this;
+                return '<img src="' + url + '" style="width: ' + percentage +
+            '" />';
+                // Usage:
+                //   ![:scale 50%](image.jpg)
+            // Outputs:
+            //   <img src="image.jpg" style="width: 50%" />
+              };
   </script>
 </body>
 </html>
